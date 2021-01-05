@@ -1,0 +1,3 @@
+include ':SlidePuzzleLib'
+include ':app'
+rootProject.name = "com.mystery.slidepuzzle"
