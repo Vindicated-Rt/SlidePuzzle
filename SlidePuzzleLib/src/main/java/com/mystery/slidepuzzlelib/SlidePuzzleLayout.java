@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -62,7 +61,7 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
         init(context);
     }
 
-    private void init(Context context){
+    private void init(Context context) {
         mContext = context;
         LayoutInflater.from(context).inflate(R.layout.slide_puzzle_layout, this);
         puzzleLeftItemView = findViewById(R.id.puzzle_l_iv);
@@ -135,21 +134,22 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
             //目的地为左
             toTop = puzzleUnkView.getTop();
             toLeft = puzzleUnkView.getLeft();
-            puzzleCheckAnim(view,toTop,toLeft);
+            puzzleCheckAnim(view, toTop, toLeft);
         } else if (puzzleItemTo == 1) {
             //目的地为中
             toTop = puzzleUnkView.getTop();
-            toLeft = puzzleUnkView.getLeft()+length*2/3;
-            puzzleCheckAnim(view,toTop,toLeft);
+            toLeft = puzzleUnkView.getLeft() + length * 2 / 3;
+            puzzleCheckAnim(view, toTop, toLeft);
         } else if (puzzleItemTo == 2) {
             //目的地为右
             toTop = puzzleUnkView.getTop();
-            toLeft = puzzleUnkView.getLeft()+length*4/3;
-            puzzleCheckAnim(view,toTop,toLeft);
+            toLeft = puzzleUnkView.getLeft() + length * 4 / 3;
+            puzzleCheckAnim(view, toTop, toLeft);
         }
     }
+
     /*拼图贴合动画*/
-    private void puzzleCheckAnim(View view,int toTop,int toLeft){
+    private void puzzleCheckAnim(View view, int toTop, int toLeft) {
         int dy = toTop - view.getTop();
         int dx = toLeft - view.getLeft();
         if (Math.abs(dy) < 100 && Math.abs(dx) < 100) {
