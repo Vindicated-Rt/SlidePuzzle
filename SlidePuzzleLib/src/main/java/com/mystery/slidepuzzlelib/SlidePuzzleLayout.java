@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -17,12 +21,14 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import java.util.Random;
 
-@SuppressLint("ClickableViewAccessibility")
-
+@SuppressLint("ClickableViewAccessibility,Recycle")
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickListener, View.OnTouchListener {
 
     private Context mContext;
@@ -45,25 +51,27 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
             R.drawable.ic_puzzle_07, R.drawable.ic_puzzle_08};
     private final int[][] puzzleRow = {{4, 1, 6}, {2, 3, 0}, {4, 5, 0}, {2, 7, 6}};
     private final int[][] puzzleColumn = {{0, 1, 2}, {0, 2, 1}, {1, 2, 0}, {1, 0, 2}, {2, 0, 1}, {2, 1, 0}};
+    private int puzzleItemColor;
 
     public SlidePuzzleLayout(@NonNull Context context) {
         super(context);
-        init(context);
     }
 
     public SlidePuzzleLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init(context,attrs);
     }
 
     public SlidePuzzleLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
+        init(context,attrs);
     }
 
-    private void init(Context context) {
+    private void init(Context context, AttributeSet attrs) {
         mContext = context;
         LayoutInflater.from(context).inflate(R.layout.slide_puzzle_layout, this);
+        TypedArray typedArray = mContext.obtainStyledAttributes(attrs,R.styleable.SlidePuzzleLayout);
+        puzzleItemColor = typedArray.getColor(R.styleable.SlidePuzzleLayout_puzzleColor,getResources().getColor(R.color.teal_200));
         puzzleLeftItemView = findViewById(R.id.puzzle_l_iv);
         puzzleMiddleItemView = findViewById(R.id.puzzle_m_iv);
         puzzleRightItemView = findViewById(R.id.puzzle_r_iv);
@@ -206,9 +214,15 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
         checkL = puzzleRow[puzzleRandomRow][puzzleColumn[puzzleRandomColumn][0]];
         checkM = puzzleRow[puzzleRandomRow][puzzleColumn[puzzleRandomColumn][1]];
         checkR = puzzleRow[puzzleRandomRow][puzzleColumn[puzzleRandomColumn][2]];
-        puzzleLeftItemView.setImageResource(puzzleViews[checkL]);
-        puzzleMiddleItemView.setImageResource(puzzleViews[checkM]);
-        puzzleRightItemView.setImageResource(puzzleViews[checkR]);
+        Drawable drawableLeft = ContextCompat.getDrawable(mContext,puzzleViews[checkL]);
+        Drawable drawableMiddle = ContextCompat.getDrawable(mContext,puzzleViews[checkM]);
+        Drawable drawableRight = ContextCompat.getDrawable(mContext,puzzleViews[checkR]);
+        drawableLeft.setTint(puzzleItemColor);
+        drawableMiddle.setTint(puzzleItemColor);
+        drawableRight.setTint(puzzleItemColor);
+        puzzleLeftItemView.setImageDrawable(drawableLeft);
+        puzzleMiddleItemView.setImageDrawable(drawableMiddle);
+        puzzleRightItemView.setImageDrawable(drawableRight);
         puzzleRightItemView.setVisibility(View.VISIBLE);
         puzzleMiddleItemView.setVisibility(View.VISIBLE);
         puzzleLeftItemView.setVisibility(View.VISIBLE);
