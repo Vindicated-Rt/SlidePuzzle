@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -39,6 +38,7 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
     private ImageView puzzleUnkView;
 
     private int downX, downY;
+
     private int screenHeight;
     private int screenWidth;
     private int checkL, checkM, checkR;
@@ -53,25 +53,21 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
     private final int[][] puzzleColumn = {{0, 1, 2}, {0, 2, 1}, {1, 2, 0}, {1, 0, 2}, {2, 0, 1}, {2, 1, 0}};
     private int puzzleItemColor;
 
-    public SlidePuzzleLayout(@NonNull Context context) {
-        super(context);
-    }
-
     public SlidePuzzleLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(context,attrs);
+        init(context, attrs);
     }
 
     public SlidePuzzleLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context,attrs);
+        init(context, attrs);
     }
 
     private void init(Context context, AttributeSet attrs) {
         mContext = context;
         LayoutInflater.from(context).inflate(R.layout.slide_puzzle_layout, this);
-        TypedArray typedArray = mContext.obtainStyledAttributes(attrs,R.styleable.SlidePuzzleLayout);
-        puzzleItemColor = typedArray.getColor(R.styleable.SlidePuzzleLayout_puzzleColor,getResources().getColor(R.color.teal_200));
+        TypedArray typedArray = mContext.obtainStyledAttributes(attrs, R.styleable.SlidePuzzleLayout);
+        setPuzzleItemColor(typedArray.getColor(R.styleable.SlidePuzzleLayout_puzzleColor, getResources().getColor(R.color.teal_200)));
         puzzleLeftItemView = findViewById(R.id.puzzle_l_iv);
         puzzleMiddleItemView = findViewById(R.id.puzzle_m_iv);
         puzzleRightItemView = findViewById(R.id.puzzle_r_iv);
@@ -214,9 +210,9 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
         checkL = puzzleRow[puzzleRandomRow][puzzleColumn[puzzleRandomColumn][0]];
         checkM = puzzleRow[puzzleRandomRow][puzzleColumn[puzzleRandomColumn][1]];
         checkR = puzzleRow[puzzleRandomRow][puzzleColumn[puzzleRandomColumn][2]];
-        Drawable drawableLeft = ContextCompat.getDrawable(mContext,puzzleViews[checkL]);
-        Drawable drawableMiddle = ContextCompat.getDrawable(mContext,puzzleViews[checkM]);
-        Drawable drawableRight = ContextCompat.getDrawable(mContext,puzzleViews[checkR]);
+        Drawable drawableLeft = ContextCompat.getDrawable(mContext, puzzleViews[checkL]);
+        Drawable drawableMiddle = ContextCompat.getDrawable(mContext, puzzleViews[checkM]);
+        Drawable drawableRight = ContextCompat.getDrawable(mContext, puzzleViews[checkR]);
         drawableLeft.setTint(puzzleItemColor);
         drawableMiddle.setTint(puzzleItemColor);
         drawableRight.setTint(puzzleItemColor);
@@ -244,5 +240,11 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
             return (Activity) context;
         }
         return null;
+    }
+
+    /*设置puzzleItem颜色*/
+    private void setPuzzleItemColor(int puzzleItemColor) {
+        this.puzzleItemColor = puzzleItemColor;
+        this.invalidate();
     }
 }

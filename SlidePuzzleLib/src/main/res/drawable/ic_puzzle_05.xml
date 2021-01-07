@@ -3,13 +3,13 @@
     android:height="100dp"
     android:viewportWidth="150"
     android:viewportHeight="100">
-  <path
-      android:pathData="M50,50m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"
-      android:fillColor="#0000FF"/>
-  <path
-      android:pathData="M50,0h75v100h-75z"
-      android:fillColor="#0000FF"/>
-  <path
-      android:pathData="M125,50m-25,0a25,25 0,1 1,50 0a25,25 0,1 1,-50 0"
-      android:fillColor="#0000FF"/>
+    <path
+        android:fillColor="#0000FF"
+        android:pathData="M50,50m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+    <path
+        android:fillColor="#0000FF"
+        android:pathData="M50,0h75v100h-75z" />
+    <path
+        android:fillColor="#0000FF"
+        android:pathData="M125,50m-25,0a25,25 0,1 1,50 0a25,26 0,1 1,-50 0" />
 </vector>
