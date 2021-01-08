@@ -42,7 +42,7 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
     private int screenHeight;
     private int screenWidth;
     private int checkL, checkM, checkR;
-    private boolean LDone, RDone, MDone;
+    private boolean LDone, RDone, MDone,AllDone;
 
     private final int[] puzzleViews = {
             R.drawable.ic_puzzle_01, R.drawable.ic_puzzle_02,
@@ -82,7 +82,7 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        CheckPuzzle();
+        AllDone = CheckPuzzle();
     }
 
     @Override
@@ -188,13 +188,15 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
     }
 
     /*发送信息,检查拼图*/
-    public void CheckPuzzle() {
+    public boolean CheckPuzzle() {
         if (LDone && RDone && MDone) {
             LDone = false;
             RDone = false;
             MDone = false;
             new Thread(() -> getActivity(mContext).runOnUiThread(this::setNewPuzzle)).start();
+            return true;
         }
+        return false;
     }
 
     /*设置新的拼图*/
