@@ -7,9 +7,7 @@ A simple puzzle layout.
 [中文版](https://github.com/Vindicated-Rt/SlidePuzzle/blob/master/README.zh.md)
 
 ## ScreenShot
-
-
-
+[![sKohVS.gif](https://s3.ax1x.com/2021/01/08/sKohVS.gif)](https://imgchr.com/i/sKohVS)
 ## How to
 
 To get the Git project into your build:
