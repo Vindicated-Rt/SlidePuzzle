@@ -1,18 +1,18 @@
-# SlidePuzzle
+#SlidePuzzle
 
-A simple puzzle layout.
+一个简单拼图布局。
 
 [![](https://jitpack.io/v/Vindicated-Rt/SlidePuzzle.svg)](https://jitpack.io/#Vindicated-Rt/SlidePuzzle)
 
-[中文版](https://github.com/Vindicated-Rt/SlidePuzzle/blob/master/README.zh.md)
+[English](https://github.com/Vindicated-Rt/SlidePuzzle/blob/master/README.md)
 
-## ScreenShot
+## 运行示意图
 
-[![sKohVS.gif](https://s3.ax1x.com/2021/01/08/sKohVS.gif)](https://imgchr.com/i/sKohVS)
+<img src="https://s3.ax1x.com/2021/01/08/sKohVS.gif" style="zoom:20%" />
 
-## How to
+## 如何使用
 
-To get the Git project into your build:
+在工程中使用该项目
 
 **Step 1.** **Gradle**(Module)
 
@@ -33,9 +33,9 @@ dependencies {
 }
 ```
 
-**Step 3.** Use like this
+**Step 3.** 这样使用
 
-Add this in a layout file.
+在布局文件中添加。
 
 ```xml
 <com.mystery.slidepuzzlelib.SlidePuzzleLayout
@@ -49,7 +49,7 @@ Add this in a layout file.
     app:puzzleColor="@color/design_default_color_error" />
 ```
 
-Use CheckPuzzle() to check puzzle.
+用CheckPuzzle() 函数检测拼图。
 
 ```java
 SlidePuzzleLayout slidePuzzleLayout;
@@ -60,4 +60,4 @@ if (slidePuzzleLayout.CheckPuzzle()){
 }
 ```
 
-You can do it in OnClick().
+你可以在点击事件中使用它。
