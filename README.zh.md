@@ -1,41 +1,41 @@
-#SlidePuzzle
+# SlidePuzzle
 
-一个简单拼图布局。
+A simple puzzle layout.
 
 [![](https://jitpack.io/v/Vindicated-Rt/SlidePuzzle.svg)](https://jitpack.io/#Vindicated-Rt/SlidePuzzle)
 
-[English](https://github.com/Vindicated-Rt/SlidePuzzle/blob/master/README.md)
+[中文版](https://github.com/Vindicated-Rt/SlidePuzzle/blob/master/README.zh.md)
 
-## 运行示意图
+## ScreenShot
 
+[![sKohVS.gif](https://s3.ax1x.com/2021/01/08/sKohVS.gif)](https://imgchr.com/i/sKohVS)
 
+## How to
 
-## 如何使用
-
-在工程中使用该项目
+To get the Git project into your build:
 
 **Step 1.** **Gradle**(Module)
 
 ```css
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
+}
 ```
 
 **Step 2.** **Gradle**(Project)
 
 ```css
-	dependencies {
-	        implementation 'com.github.Vindicated-Rt:SlidePuzzle:0.2'
-	}
+dependencies {
+  implementation 'com.github.Vindicated-Rt:SlidePuzzle:0.2'
+}
 ```
 
-**Step 3.** 这样使用
+**Step 3.** Use like this
 
-在布局文件中添加。
+Add this in a layout file.
 
 ```xml
 <com.mystery.slidepuzzlelib.SlidePuzzleLayout
@@ -49,7 +49,7 @@ allprojects {
     app:puzzleColor="@color/design_default_color_error" />
 ```
 
-用CheckPuzzle() 函数检测拼图。
+Use CheckPuzzle() to check puzzle.
 
 ```java
 SlidePuzzleLayout slidePuzzleLayout;
@@ -60,4 +60,4 @@ if (slidePuzzleLayout.CheckPuzzle()){
 }
 ```
 
-你可以在点击事件中使用它。
+You can do it in OnClick().
