@@ -8,7 +8,7 @@ A simple puzzle layout.
 
 ## ScreenShot
 
-[![sKohVS.gif](https://s3.ax1x.com/2021/01/08/sKohVS.gif)](https://imgchr.com/i/sKohVS)
+<img src="https://s3.ax1x.com/2021/01/08/sKohVS.gif" style="zoom:20%" />
 
 ## How to
 
