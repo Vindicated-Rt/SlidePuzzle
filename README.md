@@ -4,7 +4,7 @@ A simple puzzle layout.
 
 [![](https://jitpack.io/v/Vindicated-Rt/SlidePuzzle.svg)](https://jitpack.io/#Vindicated-Rt/SlidePuzzle)
 
-[English]
+[中文版](https://github.com/Vindicated-Rt/SlidePuzzle/blob/master/README.zh.md)
 
 ## ScreenShot
 
@@ -18,19 +18,19 @@ To get the Git project into your build:
 
 ```css
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
+}
 ```
 
 **Step 2.** **Gradle**(Project)
 
 ```css
-	dependencies {
-	        implementation 'com.github.Vindicated-Rt:SlidePuzzle:0.2'
-	}
+dependencies {
+  implementation 'com.github.Vindicated-Rt:SlidePuzzle:0.2'
+}
 ```
 
 **Step 3.** Use like this
