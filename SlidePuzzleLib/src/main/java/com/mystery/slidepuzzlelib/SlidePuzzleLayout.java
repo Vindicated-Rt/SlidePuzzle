@@ -28,7 +28,7 @@ import java.util.Random;
 
 @SuppressLint("ClickableViewAccessibility,Recycle")
 @RequiresApi(api = Build.VERSION_CODES.O)
-public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickListener, View.OnTouchListener {
+public class SlidePuzzleLayout extends ConstraintLayout implements View.OnTouchListener {
 
     private Context mContext;
 
@@ -42,7 +42,7 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
     private int screenHeight;
     private int screenWidth;
     private int checkL, checkM, checkR;
-    private boolean LDone, RDone, MDone,AllDone;
+    private boolean LDone, RDone, MDone;
 
     private final int[] puzzleViews = {
             R.drawable.ic_puzzle_01, R.drawable.ic_puzzle_02,
@@ -72,17 +72,11 @@ public class SlidePuzzleLayout extends ConstraintLayout implements View.OnClickL
         puzzleMiddleItemView = findViewById(R.id.puzzle_m_iv);
         puzzleRightItemView = findViewById(R.id.puzzle_r_iv);
         puzzleUnkView = findViewById(R.id.puzzle_un_iv);
-        findViewById(R.id.puzzle_check_tv).setOnClickListener(this);
         DisplayMetrics metrics = new DisplayMetrics();
         getActivity(mContext).getWindowManager().getDefaultDisplay().getMetrics(metrics);
         screenHeight = metrics.heightPixels;
         screenWidth = metrics.widthPixels;
         setNewPuzzle();
-    }
-
-    @Override
-    public void onClick(View v) {
-        AllDone = CheckPuzzle();
     }
 
     @Override

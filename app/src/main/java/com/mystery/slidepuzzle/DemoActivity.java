@@ -22,9 +22,9 @@ public class DemoActivity extends AppCompatActivity {
         slidePuzzleLayout = findViewById(R.id.slide_puzzle);
     }
 
-    public void Check(View view) {
+    public void CheckPuzzleDone(View view) {
         if (slidePuzzleLayout.CheckPuzzle()){
-            Toast.makeText(this,"Puzzle Check",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Puzlle Check!",Toast.LENGTH_SHORT).show();
         }
     }
 }

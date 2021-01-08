@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SlidePuzzle</string>
+    <string name="check_btn_text">check</string>
 </resources>
